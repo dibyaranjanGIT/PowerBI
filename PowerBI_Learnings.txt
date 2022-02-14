@@ -1,0 +1,118 @@
+Power BI has three main components 
+Power Query  - For connecting to different data sources
+Power Pivot  - For finding measures and calculating facts
+Power Visuals - For visualization
+
+PowerBI tools has 
+Model view
+Data view
+Report view
+
+Power BI Desktop : is an application that you download and install for free on your local computer. Desktop is a complete data analysis and report creation tool that is used to connect to, transform, visualize, and analyze your data. It includes the Query Editor, in which you can connect to many different sources of data
+
+The Power BI service : is a cloud-based service, or software as a service (SaaS). It supports report editing and collaboration for teams and organizations. You can connect to data sources in the Power BI service, too, but modeling is limited
+
+DAX is Data Analysis Expression.
+
+Power Query Editor : For running your queries.
+
+Merge Queries will do Join condtion of two tables. and Append Queries will do Union condition of two tables.
+
+In Add Column we Capitalize each word then It create a new column
+In Transform we Capitalize each word then It create a new column
+
+****
+Normalization is the process of organizing the tables and columns in a relational database to reduce the redundancy
+and preserve data integrity.
+
+It is used to Eliminate redundant data to decrease the table size and increase speed.
+It is used to Minimize errors and anomalies from data.
+
+****
+TIP : In a Normalized database every table should serve a distinct and specific data.
+For example a Departmen table contains the employee name.
+
+Fact tables contains the quantitativ matrix i.e. the number and values that you care about.
+Lookup tables provide descriptive data for each tables.	
+
+Lookup tables provide descriptive, often text based attributes about each dimension. 
+
+Primary keys are unique and Foreign keys are duplicate.
+
+Cardinality refers to uniqueness of a value in a column.
+one-to-many = one instance of each primary key but potential many instance of each foreign key. one department contains many employees
+one-to-one = each employee can have a single address.
+many-to-many = each student can multiple course, and each course can belong to multiple student. In many to many relationship we don't think about the Normalization.
+In many to many relations ship you can create a relationship between two tables.
+
+***
+Never create relationship between data tables.
+
+Filter flow is necessary for managing your view in Report view.
+
+Query Editor:
+=#date(2020,1,1)
+
+Primary Key is a unique and non-null key which identify a record uniquely in table. ... Candidate key is also a unique key to identify a record uniquely in a table but a table can have multiple candidate keys.
+
+A primary key having two or more attributes is called composite key. It is a combination of two or more columns.
+
+1NF - Records should be Atomic: Means each row should contain a distinct values
+2NF - No non-prime attribute is dependent on the proper subset of any candidate key of table.
+teacher_id	subject		teacher_age
+111			Maths		38
+111			Physics		38
+222			Biology		38
+333			Physics		40
+333			Chemistry	40
+
+DAX is the Data Analysis Expression : This is the language that drives the Power BI.
+
+Measures are DAX formulas that are used to generate new calculated values.
+
+## Calculated column vs Measures:
+Calculated Columns are information from each row table.	Measures are calculated based on information filters in the report.
+Calculated columns does not understand the filter context. It can understand row context.
+
+Implicit measures
+are created when you drag raw numerical fields (like OrderQuantity ”) into the values pane of a visual and manually select the aggregation mode ( Sum, Average, Min/Max, etc)
+
+Explicit measures
+are created by actually entering DAX functions (or adding “ quick measures ”) to define calculated columns or measures
+
+Implicit measures are only accessible within the specific visualization in which it was created, and cannot be referenced elsewhere
+Explicit measures can be used anywhere in the report, and referenced within other DAX calculations to create “measure trees”
+
+Data Function :
+	DAY/MONTH/YEAR(Date)
+	HOUR/MINUTE/SECOND (Datetime)
+	TODAY/NOW()
+	WEEKDAY/WEEKNUM(Date, ReturnType)
+	EOMONTH(StartDate, Months) Returns the date of the last day of the month, +/ a specified number of months
+	DATEDIFF(Date1,Date2,Interval)
+	
+Count Functions:
+	COUNT = Counts the number of cells in a column that contain numbers
+	COUNTA = Counts the number of non empty cells in a column (numerical and non numerical)
+	DISTINCTCOUNT = Counts the number of distinct or unique values in a column
+	
+	
+ALL() = Returns all rows in a table, or all values in a column, ignoring any filters that have been applied
+ALL (Table or ColumnName , [ColumnName1], [])
+
+
+FILTER vs ALL
+In Filter you can apply a measure as a condition i.e. FILTER(Table, FilterExpression)
+CALCULATE(Measure, ALL(AW_Sales))
+
+Filter is an iterator function, which means it iterates row by row and where it returns True that data is filtered out.
+CALCULATE is not an iterator, It identifies the filter condition and modifies the measures.
+
+Filter Types in Power BI Visuals:
+Visual Level - Applied to one visual or graph.
+Page Level - Applied to specific page.
+Report Levle - These are universe level filters.
+Drill Through Filters - To go to certain pages.
+
+What is PowerBI workspace ?
+It's a central repo where you publish your dashboard and everybody else can come and see it or edit it if you have given them the permission to do that.
